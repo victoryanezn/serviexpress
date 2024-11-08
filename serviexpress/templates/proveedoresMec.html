@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div class="container">
+    <div class="m-5">
+        <h2 class="m-5 text-center text-white">Nuestros proveedores</h2>
+
+
+        {% for proveedor in proveedores %}
+        <div class="card mb-3 text-bg-secondary">
+            <div class="row">
+
+                <div class="col-md-7 position-relative">
+                    <div class="row">
+                        <h3 class="card-title text-center mt-2 fw-bold">{{ proveedor.nombre_empresa }}</h3><br>
+                        <p class="card-text fw-semibold">Tipo de proveedor: {{ proveedor.tipo_proveedor.nombre }}</p>
+                        <div class="card-text">
+                            <p class="card-text fw-light">{{ proveedor.direccion }}</p><br>
+                            <p class="card-text fw-semibold">Teléfono: {{ proveedor.telefono }}</p>
+                            <p class="card-text fw-semibold">Correo: {{ proveedor.correo }}</p>
+                            <p class="card-text fw-semibold">Productos: {{ proveedor.productos }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

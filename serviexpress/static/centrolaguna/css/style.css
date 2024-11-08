@@ -1,0 +1,406 @@
+
+body {
+    background-image: url('../../../static/centrolaguna/img/fondotaller.jpg'); 
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Fija la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-color: #007bff; /* Color de fondo de respaldo en caso de que la imagen no cargue */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.homeimgs {
+    display: flex; 
+    
+    justify-content: center;
+
+    gap: 40px; /* Espacio entre las imágenes */
+    flex-wrap: wrap;
+}
+
+.imageneshome {
+    width: 350px; /* Ajusta el tamaño de las imágenes */
+    height: 350px; /* Asegura que sean cuadradas */
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+.imageneshome:hover {
+    transform: scale(1.1); /* Agranda la imagen un 20% cuando se pasa el mouse por encima */
+}
+
+.imageneshome:not(:hover) {
+    transition-delay: 0s; /* Agrega un pequeño delay antes de regresar a su tamaño normal */
+}
+
+
+
+
+.navbar-nav .nav-link {
+    font-family: 'Poppins', sans-serif;
+    color: #007bff;
+    font-size: 15px;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0 1px;
+}
+
+
+.navbar-nav .nav-link:hover {
+    color: #66b2ff;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #66b2ff;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre las opciones */
+}
+
+
+
+
+
+/* Alinear y espaciado de los botones */
+.navbar-nav.ms-auto .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; /* Tamaño más pequeño */
+    font-weight: 500;
+    padding: 6px 12px; /* Espacio reducido */
+    margin-right: 10px; /* Separación entre los botones */
+    transition: background-color 0.2s, color 0.2s ease;
+    text-decoration: none;
+}
+
+
+
+
+
+.social-bar {
+    background-color: #007bff; /* Color azul */
+}
+
+.social-bar a {
+    color: white; /* Color de las letras */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.social-bar a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Ajustes para el texto */
+.social-bar span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; /* Tamaño de letra */
+}
+
+
+/* ------------------------ */
+
+/* Estilos para la barra de administración */
+.admin-bar-container {
+    background-color: #2c3e50;  /* Fondo oscuro */
+    color: white;  /* Texto en blanco */
+    padding: 10px 0 10px;  /* Espaciado en la parte superior e inferior */
+    text-align: center;  /* Centrado de los elementos */
+}
+
+.admin-bar-content {
+    max-width: 1200px;  /* Limitar el ancho de la barra */
+    margin: 0 auto;
+}
+
+.admin-bar-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.admin-btn {
+    display: inline-block;
+    margin: 10px 10px;  /* Separación entre botones */
+    padding: 12px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #f39c12;  /* Amarillo metálico */
+    color: #2c3e50;  /* Color oscuro para el texto */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;  /* Transición suave */
+}
+
+.admin-btn:hover {
+    background-color: #e67e22;  /* Hover color naranja */
+    color: white;
+    transform: translateY(-4px);  /* Efecto de elevación */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
+}
+
+.admin-btn:active {
+    transform: translateY(2px);  /* Efecto de presión al hacer clic */
+    box-shadow: none;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .admin-bar-text {
+        font-size: 1.2rem;  /* Ajuste de tamaño de fuente en móviles */
+    }
+
+    .admin-btn {
+        width: 100%;  /* Los botones ocupan el 100% del ancho en pantallas pequeñas */
+        margin: 10px 0;  /* Espaciado entre los botones */
+        text-align: center;  /* Centrado de los botones */
+    }
+}
+
+
+ /* --------------- */
+
+
+
+@media (max-width: 768px) {
+    .galeria {
+        flex-direction: column; /* Alinea las imágenes en columna en pantallas pequeñas */
+        gap: 10px; /* Reduce el espacio entre las imágenes en pantallas pequeñas */
+    }
+    .imagen {
+        width: 80px; /* Reduce el tamaño de las imágenes en pantallas pequeñas */
+        height: 80px; /* Reduce el tamaño de las imágenes en pantallas pequeñas */
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .galeria {
+        gap: 5px; /* Reduce aún más el espacio entre las imágenes en pantallas muy pequeñas */
+    }
+    .imagen {
+        width: 60px; /* Reduce aún más el tamaño de las imágenes en pantallas muy pequeñas */
+        height: 60px; /* Reduce aún más el tamaño de las imágenes en pantallas muy pequeñas */
+    }
+}
+
+footer {
+    margin-top: auto;
+    justify-content: end;
+    bottom: 0;
+    width: auto;
+}
+
+.card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.imagen {
+    flex: 0 0 30%; /* Tamaño fijo para la imagen */
+    margin-right: 10px;
+}
+.contenido {
+    flex: 1; /* El contenido ocupa el espacio restante */
+}
+.imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.fondo {
+    background-color: #ffffff;
+}
+
+.error {
+    color: red;
+}
+
+.titulo {
+    font-family: 'Montserrat', sans-serif; /* Fuente estilizada para títulos */
+    color: rgb(255, 255, 255); /* Texto blanco */
+    font-size: 2.5rem; /* Tamaño grande del texto */
+    font-weight: 700; /* Negrita para mayor impacto */
+    text-align: center; /* Alineación centrada */
+    text-shadow: 2px 2px 4px #000000; /* Sombra negra suave */
+    margin: 20px 0; /* Margen alrededor del texto */
+}
+
+.color1 {
+    background-color: #ffffff;
+}
+
+.color2 {
+    background-color: #292941;
+}
+
+.color3 {
+    background-color: #3C3C4E;
+}
+
+.color4 {
+    background-color: #3B3B49;
+}
+.color5 {
+    background-color: #e0e0e0;
+}
+
+.errorlist1 {
+    color: red;
+}
+
+.l-card {
+    color: #000000 !important;
+}
+
+.bi-card {
+    background-color: #212132;
+}
+
+.b-card {
+    background-color: #212132 !important;
+}
+
+/* Contenedor general */
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    flex-wrap: wrap; /* Permitir que los elementos se reorganicen en pantallas pequeñas */
+    margin: 50px auto;
+    max-width: 1200px; /* Limitar el ancho máximo del contenedor */
+}
+
+/* Imagen del taller */
+.fotohome {
+    flex: 1; /* La imagen ocupará la mitad del espacio disponible */
+    
+}
+
+.fotohome img {
+    
+
+    width: 400px;
+    height: 400px;
+    object-fit: cover; /* Mantener la relación de aspecto de la imagen */
+
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del texto */
+.texto {
+    flex: 1; /* El texto ocupará la otra mitad del espacio */
+    width: 500px;
+    height: 450px;
+    
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.1);
+    
+    padding: 30px 30px;
+
+    font-family: 'Poppins', sans-serif;
+    color: #007bff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+.contenedor {
+    flex-direction: column; /* Poner los elementos en columna */
+    align-items: center; /* Centrar contenido en pantallas pequeñas */
+}
+
+.texto {
+    width: 90%; /* Ajustar ancho al tamaño de pantalla */
+    margin-top: 20px; /* Separar del bloque de imagen */
+}
+}
+
+
+/* Contenedor general */
+.marcas-contenedor {
+    background-color: #0078d7; /* Azul de fondo */
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Título y descripción */
+.marcas-contenedor h2 {
+margin-bottom: 10px;
+font-size: 2rem;
+}
+
+.marcas-contenedor p {
+margin-bottom: 30px;
+font-size: 1.2rem;
+}
+
+/* Grid de marcas */
+.grid-marcas {
+display: grid; 
+/* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  */
+grid-template-columns: repeat(5, 1fr);
+gap: 50px; /* Espacio entre las marcas */
+justify-items: center; /* Centra los elementos */
+}
+
+/* Estilo para cada marca */
+.marca {
+background-color: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+display: flex;
+align-items: center;
+justify-content: center;
+height: 150px; /* Altura fija */
+width: 150px; /* Ancho fijo */
+}
+
+.marca img {
+max-width: 80%; /* Imagen responsiva */
+max-height: 80%;
+object-fit: contain; /* Asegura que la imagen no se deforme */
+}
+
+
+.marca:hover {
+transform: scale(1.1); /* Agranda el cuadrado un 10% */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* Efecto al salir del hover: transición lenta */
+.marca {
+transition: transform 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+
+/* ................... */
+

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="m-5">
+  <h1 class="m-auto text-center text-white">Proveedores</h1>
+  <div class="container mt-2">
+    <div class="mb-2">
+      <a href="/proveedor/crear/"><button class="btn btn-success">Crear Proveedor</button></a>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table table-secondary table-striped table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre de Empresa</th>
+                <th scope="col">Tipo de Proveedor</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Productos</th>
+                <th scope="col">Categoría de Proveedor</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for proveedor in proveedores %}
+              <tr>
+                <td>{{ proveedor.id }}</td>
+                <td class="fw-semibold">{{ proveedor.nombre_empresa }}</td>
+                <!-- Aquí accedemos a la relación de tipo_proveedor y categoría_proveedor -->
+                <td>{{ proveedor.tipo_proveedor.nombre }}</td> <!-- Acceso al campo 'nombre' de TipoProveedor -->
+                <td>{{ proveedor.direccion }}</td>
+                <td>{{ proveedor.telefono }}</td>
+                <td>{{ proveedor.correo }}</td>
+                <td>{{ proveedor.productos }}</td>
+                <td>{{ proveedor.categoria_proveedor.nombre }}</td> <!-- Acceso al campo 'nombre' de CategoriaProveedor -->
+                <td>
+                  <!-- Botón para eliminar el proveedor -->
+                  <form action="{% url 'eliminar_proveedor' proveedor.id %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-danger">Eliminar</button>
+                  </form>
+                  <!-- Botón para modificar los datos del proveedor -->
+                  <a href="{% url 'detalle_proveedor' proveedor.id %}" class="btn btn-primary mt-2">Modificar</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
